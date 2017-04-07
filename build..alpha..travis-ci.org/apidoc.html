@@ -1,0 +1,661 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/linnovate/mean-cli#readme"
+
+    >mean-cli (v0.12.15)</a>
+</h1>
+<h4>Simple command line interface for installing and managing MEAN apps</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli">module mean-cli</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>install</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>scaffold</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.install">module mean-cli.install</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.install.init">
+            function <span class="apidocSignatureSpan">mean-cli.install.</span>init
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.scaffold">module mean-cli.scaffold</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.scaffold.packages">
+            function <span class="apidocSignatureSpan">mean-cli.scaffold.</span>packages
+            <span class="apidocSignatureSpan">(name, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.utils">module mean-cli.utils</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">mean-cli.utils.</span>isWin</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.Progress">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>Progress
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.checkNpmPermission">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>checkNpmPermission
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.loadPackageJson">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>loadPackageJson
+            <span class="apidocSignatureSpan">(path, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.meanJsonPath">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>meanJsonPath
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.readMeanSync">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>readMeanSync
+            <span class="apidocSignatureSpan">(param)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.readToken">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>readToken
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.updateGlobalMeanJson">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>updateGlobalMeanJson
+            <span class="apidocSignatureSpan">(values, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.utils.updateMeanJson">
+            function <span class="apidocSignatureSpan">mean-cli.utils.</span>updateMeanJson
+            <span class="apidocSignatureSpan">(path , values, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli" id="apidoc.module.mean-cli">module mean-cli</a></h1>
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.install" id="apidoc.module.mean-cli.install">module mean-cli.install</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.install.init" id="apidoc.element.mean-cli.install.init">
+        function <span class="apidocSignatureSpan">mean-cli.install.</span>init
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">init = function (options) {
+  progress.start();
+
+	options.anonymizedData = (options.privacy === &#x27;Y&#x27; ||options.privacy === &#x27;y&#x27; );
+
+	series([
+      checkPermissions,
+      function(done) {
+		  cloneMean(options, done);
+      },
+	  function(done) {
+		  updateSettings(options, done);
+	  },
+	  function(done) {
+		  createMeanJson(options, done);
+	  },
+	  //printMeanIntro,
+      function(done) {
+        addGitRemote(options.name, done);
+      },
+	  function(done) {
+        renameMeanStarter(options.name, done);
+      },
+	  function(done) {
+	    createLocalUser(options, function(err, user) {
+		    console.log();
+		    if (user) options.email = user.email;
+		    if (err) return done(err);
+		    done();
+	    });
+	  },
+    ],function(err) {
+      if (err) throw err;
+      nextSteps(options.name);
+    });
+
+    progress.stop();
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    message: &#x27;What would you name your mean app?&#x27;,
+    default: options.name,
+    validate: required
+  }];
+
+  inquirer.prompt(questions).then(function(results) {
+    _.assign(options, results);
+    install.<span class="apidocCodeKeywordSpan">init</span>(options, indexCb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.scaffold" id="apidoc.module.mean-cli.scaffold">module mean-cli.scaffold</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.scaffold.packages" id="apidoc.element.mean-cli.scaffold.packages">
+        function <span class="apidocSignatureSpan">mean-cli.scaffold.</span>packages
+        <span class="apidocSignatureSpan">(name, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">packages = function (name, options) {
+
+  var pkg = require(process.cwd() + &#x27;/package.json&#x27;);
+  var camelName = camelCase(name);
+
+  data = {
+    pkgName: name,
+    name: camelName,
+    class: capitaliseFirstLetter(camelName),
+    author: (typeof options.author === &#x27;string&#x27; ? options.author : &#x27;mean scaffold&#x27;),
+    version: pkg.mean || pkg.version
+  };
+
+  console.log(&#x27;Go to #!/&#x27; + data.name + &#x27;/example to see your default page&#x27;);
+
+  buildDirectoryStructure();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.utils" id="apidoc.module.mean-cli.utils">module mean-cli.utils</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.Progress" id="apidoc.element.mean-cli.utils.Progress">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>Progress
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Progress = function (){
+  var interval, counter;
+
+  function printMsg() {
+    switch (counter) {
+      case 0:
+        console.log(&#x27;Use `mean --help` from command line for all CLI options&#x27;);
+        break;
+      case 1:
+        console.log(&#x27;Be sure to checkout all the docs on http://mean.io&#x27;);
+        break;
+      case 2:
+        console.log(&#x27;This may take a little while depending on your connection speed&#x27;);
+        break;
+      case 15:
+        console.log(&#x27;Seems a bit slow. Check your internet connection...&#x27;);
+        break;
+      default:
+        console.log(&#x27;Still cloning...&#x27;);
+        break;
+    }
+    counter++;
+  }
+
+  return {
+    start: function() {
+      counter = 0;
+      interval = setInterval(printMsg, 3000);
+    },
+    stop: function() {
+      clearInterval(interval);
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var chalk = require(&#x27;chalk&#x27;);
+var utils = require(&#x27;./utils&#x27;);
+var mongoCtrl = require(&#x27;./controllers/mongo&#x27;);
+var series = require(&#x27;async-series&#x27;);
+var inquirer = require(&#x27;inquirer&#x27;);
+var prompt = require(&#x27;prompt&#x27;);
+
+var progress = new utils.<span class="apidocCodeKeywordSpan">Progress</span>();
+
+exports.init = function(options) {
+  progress.start();
+
+	options.anonymizedData = (options.privacy === &#x27;Y&#x27; ||options.privacy === &#x27;y&#x27; );
+
+	series([
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.checkNpmPermission" id="apidoc.element.mean-cli.utils.checkNpmPermission">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>checkNpmPermission
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">checkNpmPermission = function (callback){
+  var homeDir = process.env[isWin ? &#x27;USERPROFILE&#x27; : &#x27;HOME&#x27;];
+  var findCmd = &#x27;find &#x27; + homeDir +&#x27;/.npm &#x27; + &#x27;-user root&#x27;;
+  shell.exec(findCmd, function( status, output){
+    var hasRootFiles = output.split(/\r\n|\r|\n/).length;
+    if (hasRootFiles &#x3e; 1){
+      console.log (chalk.red(&#x27;There are &#x27; + hasRootFiles + &#x27; files in your ~/.npm owned by root&#x27;));
+      console.log(chalk.green(&#x27;Please change the permissions by running -&#x27;), &#x27;chown -R `whoami` ~/.npm &#x27;);
+	    return callback(&#x27;ROOT PERMISSIONS IN NPM&#x27;);
+    }
+  });
+  callback();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		if (process.getuid) {
+			var uid = process.getuid();
+			if (  uid === 0) {
+				console.log(chalk.red(&#x27;Installation of mean should not be done as root! bailing out&#x27;));
+				throw(&#x27;RUNNING AS ROOT&#x27;);
+			}
+		}
+		utils.<span class="apidocCodeKeywordSpan">checkNpmPermission</span>(done);
+	}
+}
+
+/*
+function printMeanIntro(done) {
+var logo = fs.readFileSync(__dirname + &#x27;/../img/logo.txt&#x27;);
+console.log(logo.toString());
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.loadPackageJson" id="apidoc.element.mean-cli.utils.loadPackageJson">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>loadPackageJson
+        <span class="apidocSignatureSpan">(path, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadPackageJson = function (path, callback) {
+  fs.readFile(path, function(err, data) {
+    if (err) return callback(err);
+
+    try {
+      var pkg = JSON.parse(data.toString());
+      pkg.meanVersion = pkg.mean || pkg.version;
+      callback(null, pkg);
+    } catch (err) {
+      return callback(err);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+
+
+
+/*
+function checkoutStableTag(name){
+utils.<span class="apidocCodeKeywordSpan">loadPackageJson</span>(&#x27;./&#x27; + name + &#x27;/package.json&#x27;, function (err
+, data) {
+  var stableTag = &#x27;v&#x27;+ data.mean;
+  console.log(&#x27;xxx&#x27; ,data.mean);
+  var tagCmd = &#x27;cd &#x27; + name + &#x27;&#x26;&#x26; git checkout  &#x27; + stableTag;
+  shell.exec(tagCmd);
+  console.log(chalk.green(&#x27;Checked out to stable Tag - &#x27;), stableTag);
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.meanJsonPath" id="apidoc.element.mean-cli.utils.meanJsonPath">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>meanJsonPath
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">meanJsonPath = function () {
+	var file = (process.platform === &#x27;win32&#x27;) ? &#x27;_mean&#x27; : &#x27;.mean&#x27;;
+	var path = getUserHome() + &#x27;/&#x27; + file;
+	return path;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.readMeanSync" id="apidoc.element.mean-cli.utils.readMeanSync">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>readMeanSync
+        <span class="apidocSignatureSpan">(param)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readMeanSync = function (param) {
+	var value;
+
+	var path = meanJsonPath();
+
+	if (!shell.test(&#x27;-e&#x27;, path)) return null;
+
+	var data = fs.readFileSync(path);
+	try {
+		var json = JSON.parse(data.toString());
+		value = json[param];
+	} catch (err) {
+		value = null;
+	}
+
+	return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.readToken" id="apidoc.element.mean-cli.utils.readToken">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>readToken
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">readToken = function () {
+	var token;
+
+	var path = meanJsonPath();
+
+	if (!shell.test(&#x27;-e&#x27;, path)) return null;
+
+	var data = fs.readFileSync(path);
+	try {
+		var json = JSON.parse(data.toString());
+		token = json.token;
+	} catch (err) {
+		token = shell.cat(path);
+		token = token.replace(/(\r\n|\n|\r)/gm,&#x27;&#x27;);
+	}
+
+	return token;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+*/
+
+/*
+function createNetworkUser(options, done) {
+
+	if (options.anonymizedData) {
+		var token = utils.<span class="apidocCodeKeywordSpan">readToken</span>();
+		if (!token)
+			registerOrLogin(options, done, function(token) {
+				initApp(options.name, token,  done);
+			});
+		else {
+			initApp(options.name, token, done);
+		}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.updateGlobalMeanJson" id="apidoc.element.mean-cli.utils.updateGlobalMeanJson">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>updateGlobalMeanJson
+        <span class="apidocSignatureSpan">(values, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateGlobalMeanJson = function (values, callback) {
+
+	var path = meanJsonPath();
+
+	fs.lstat(path, function(err, stat) {
+		if (err || !stat) {
+			writeMeanJson(path, values, function() {
+				callback();
+			});
+		} else {
+			fs.readFile(path, function(err, file) {
+				if (err) return callback(err);
+
+				try {
+					var json = JSON.parse(file.toString());
+
+					for (var index in values)
+						json[index] = values[index];
+
+				writeMeanJson(path, json, function(err) {
+					callback(err);
+				});
+
+				} catch (err) { // old mean-cli
+					var data = {};
+					data = values;
+					data.token = readToken();
+					writeMeanJson(path, data, function(err) {
+						callback(err);
+					});
+				}
+			});
+		}
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    utils.updateMeanJson(path, data, function() {
+        done();
+    });
+}
+
+function createMeanJson(options, done) {
+
+	utils.<span class="apidocCodeKeywordSpan">updateGlobalMeanJson</span>({anonymizedData:  options.privacy === &#x27;Y&#x27;}, function
+() {
+		done();
+	});
+}
+
+
+function checkPermissions(done) {
+	if (utils.isWin) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.utils.updateMeanJson" id="apidoc.element.mean-cli.utils.updateMeanJson">
+        function <span class="apidocSignatureSpan">mean-cli.utils.</span>updateMeanJson
+        <span class="apidocSignatureSpan">(path , values, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateMeanJson = function (path , values, callback) {
+
+    fs.readFile(path, function(err, file) {
+        if (err) return callback(err);
+
+        var json = JSON.parse(file.toString());
+
+        for (var index in values)
+            json[index] = values[index];
+
+        writeMeanJson(path, json, function(err) {
+            callback(err);
+        });
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var data = {
+        anonymizedData: options.anonymizedData,
+        name: options.name
+    };
+
+    var path = process.cwd() + &#x27;/&#x27; + options.name + &#x27;/mean.json&#x27;;
+
+    utils.<span class="apidocCodeKeywordSpan">updateMeanJson</span>(path, data, function() {
+        done();
+    });
+}
+
+function createMeanJson(options, done) {
+
+	utils.updateGlobalMeanJson({anonymizedData:  options.privacy === &#x27;Y&#x27;}, function() {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
