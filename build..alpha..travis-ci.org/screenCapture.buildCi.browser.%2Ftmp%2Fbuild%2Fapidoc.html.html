@@ -47,7 +47,7 @@
 }
 </style>
 <h1>api documentation for
-    <a href="https://github.com/linnovate/mean-cli#readme">mean-cli (v0.12.15)</a>
+    <a>mean-cli (v0.12.15)</a>
 </h1>
 <h4>Simple command line interface for installing and managing MEAN apps</h4>
 <div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
@@ -56,7 +56,19 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>anonymized_data</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>install</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>mongo</span>
 
         </li>
 
@@ -68,7 +80,26 @@
 
         <li>
 
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>users</span>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">mean-cli.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.anonymized_data">module mean-cli.anonymized_data</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.anonymized_data.create">
+            function <span class="apidocSignatureSpan">mean-cli.anonymized_data.</span>create
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
 
         </li>
 
@@ -87,6 +118,19 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.mongo">module mean-cli.mongo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.mongo.connect">
+            function <span class="apidocSignatureSpan">mean-cli.mongo.</span>connect
+            <span class="apidocSignatureSpan">(env, callback, appName)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
     <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.scaffold">module mean-cli.scaffold</a><ol>
 
         <li>
@@ -94,6 +138,64 @@
             <a class="apidocElementLiA" href="#apidoc.element.mean-cli.scaffold.packages">
             function <span class="apidocSignatureSpan">mean-cli.scaffold.</span>packages
             <span class="apidocSignatureSpan">(name, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mean-cli.users">module mean-cli.users</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.authorize">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>authorize
+            <span class="apidocSignatureSpan">(token, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.create">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>create
+            <span class="apidocSignatureSpan">(user, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.login">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>login
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.logout">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>logout
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.register">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>register
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mean-cli.users.whoami">
+            function <span class="apidocSignatureSpan">mean-cli.users.</span>whoami
+            <span class="apidocSignatureSpan">(callback)</span>
             </a>
 
         </li>
@@ -193,6 +295,55 @@
 
 
 
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.anonymized_data" id="apidoc.module.mean-cli.anonymized_data">module mean-cli.anonymized_data</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.anonymized_data.create" id="apidoc.element.mean-cli.anonymized_data.create">
+        function <span class="apidocSignatureSpan">mean-cli.anonymized_data.</span>create
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (options) {
+	checkPrivacy(options, function(token) {
+		var data = {
+			token: token,
+			platform: process.platform,
+			versions: process.versions,
+			created: new Date(),
+			//success: (options.err) ? false : true,
+			//err: options.err,
+			command: options.cmd,
+			data: options.data
+		};
+
+		var opt = {
+			uri:  napi + '/index/cli/cli',
+			method: 'POST',
+			body: JSON.stringify(data),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		};
+
+		request(opt, function() {});
+	});
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
 </div>
 
 <div class="apidocSectionDiv">
@@ -263,6 +414,59 @@
 </div>
 
 <div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.mongo" id="apidoc.module.mean-cli.mongo">module mean-cli.mongo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.mongo.connect" id="apidoc.element.mean-cli.mongo.connect">
+        function <span class="apidocSignatureSpan">mean-cli.mongo.</span>connect
+        <span class="apidocSignatureSpan">(env, callback, appName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connect = function (env, callback, appName) {
+
+	var pkgJsonPath = (appName) ? process.cwd() + '/' + appName + '/package.json' : './package.json';
+
+	utils.loadPackageJson(pkgJsonPath, function(err, data) {
+		if (err) return callback(err);
+
+		var path = (data.meanVersion &lt; '0.4.0' ? '/server' : '') + '/config/env/' + env + '.js';
+
+		var config = (appName) ? require(process.cwd() + '/' + appName + path) : require(process.cwd() + path);
+
+		var db = require('mongoose').createConnection(config.db, config.dbOptions);
+		db.on('error', console.error.bind(console, chalk.red('    Error Connecting to database:')));
+		db.once('open', function() {
+			console.log(chalk.green('    DB connection successful!'));
+			console.log();
+			db.options.url = config.db;
+			callback(null, db);
+		});
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		 name: 'username',
+		 message: 'Please provide your username so we can create your first admin user',
+		 default: options.username,
+		 validate: required
+	 }];
+
+	inquirer.prompt(questions).then(function(results) {
+		mongoCtrl.<span class="apidocCodeKeywordSpan">connect</span>('development', function(err, db) {
+			DB = db;
+			if (err) {
+				console.error('Cannot create admin user');
+				return done();
+			}
+			User = db.collection('users');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.mean-cli.scaffold" id="apidoc.module.mean-cli.scaffold">module mean-cli.scaffold</a></h1>
 
 
@@ -289,6 +493,303 @@
   console.log('Go to #!/' + data.name + '/example to see your default page');
 
   buildDirectoryStructure();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mean-cli.users" id="apidoc.module.mean-cli.users">module mean-cli.users</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.authorize" id="apidoc.element.mean-cli.users.authorize">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>authorize
+        <span class="apidocSignatureSpan">(token, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">authorize = function (token, callback) {
+
+	if (token) {
+		utils.updateGlobalMeanJson({token: token}, function() {
+			whoami();
+		});
+
+	} else {
+
+		prompt.start();
+
+		prompt.get({
+				properties: {
+					token: {
+						hidden: true,
+						required: true
+					}
+				}
+			},
+			function(err, result) {
+
+				utils.updateGlobalMeanJson({token: result.token}, function() {
+					whoami(callback);
+				});
+			});
+
+	}
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.create" id="apidoc.element.mean-cli.users.create">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>create
+        <span class="apidocSignatureSpan">(user, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (user, callback) {
+
+	var opt = {
+		uri:  napi + '/user',
+		method: 'POST',
+		form: user,
+		headers: {
+			'Content-Type': 'multipart/form-data',
+			'Content-Length': querystring.stringify(user).length
+		}
+
+	};
+
+	request(opt, function(err, response, body) {
+		if (!err &amp;&amp; (response.statusCode === 200 || response.statusCode === 201)) {
+			console.log('Registration Successful! \n Authorizing the mean client.');
+
+			body = JSON.parse(body);
+
+			authorize(body.token, function() {
+				console.log('Run `mean whoami` to see authorized credentials');
+			});
+
+			if (callback) callback(body.token);
+
+		} else if (!err) {
+            console.log(chalk.red('Error: Registration Failed!'));
+            console.log(chalk.red(body));
+        } else return console.error(err);
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.login" id="apidoc.element.mean-cli.users.login">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>login
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">login = function (options, callback) {
+
+	prompt.start();
+
+	prompt.get({
+			properties: {
+				email: {
+					format: 'email',
+					required: true,
+					default: (options &amp;&amp; options.email) ? options.email: ''
+				},
+				password: {
+					minLength: 8,
+					maxLength: 15,
+					pattern: /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/,
+					message: 'Password must be only letters, spaces, or dashes 8-15 characters long',
+					hidden: true,
+					required: true
+				}
+			}
+		},
+		function(err, result) {
+
+			if (err) throw err;
+
+			var opt = {
+				uri:  napi + '/user/login',
+				method: 'POST',
+				form: result,
+				headers: {
+					'Content-Type': 'multipart/form-data',
+					'Content-Length': querystring.stringify(result).length
+				}
+
+			};
+
+			request(opt, function(err, response, body) {
+				if (!err &amp;&amp; (response.statusCode === 200 || response.statusCode === 201)) {
+					console.log('Login Successful! \n Authorizing the mean client.');
+
+					body = JSON.parse(body);
+
+					authorize(body.token.api, function() {
+						console.log('Run `mean whoami` to see authorized credentials');
+					});
+
+					if (callback) callback(body.token.api);
+
+				} else {
+					console.log(chalk.red('Error: Login Failed!'));
+					if (err) return console.error(err);
+				}
+			});
+
+		});
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				type: 'input',
+				name: 'exists',
+				message: 'Do you have an existing user? (y/N) ? ',
+				default: 'N'
+			}];
+			inquirer.prompt(questions).then(function(results) {
+				if (results.exists === 'Y' || results.exists === 'y')
+					users.<span class="apidocCodeKeywordSpan">login</span>(options, callback);
+				else users.register(options, callback);
+			});
+		} else done();
+
+	});
+}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.logout" id="apidoc.element.mean-cli.users.logout">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>logout
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">logout = function () {
+	utils.updateGlobalMeanJson({token:null}, function() {});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.register" id="apidoc.element.mean-cli.users.register">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>register
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (options, callback) {
+
+	prompt.start();
+
+	prompt.get({
+			properties: {
+				name: {
+					pattern: /^[a-zA-Z\s\-]+$/,
+					minLength: 4,
+					maxLength: 15,
+					message: 'Name must be only letters, spaces, or dashes (min length of 4)',
+					required: true
+				},
+				username: {
+					minLength: 4,
+					maxLength: 15,
+					pattern: /^[a-zA-Z\s\-]+$/,
+					message: 'Username must be only letters, spaces, or dashes (min length of 4)',
+					required: true,
+					default: (options &amp;&amp; options.username) ? options.username: ''
+				},
+				email: {
+					format: 'email',
+					required: true,
+					default: (options &amp;&amp; options.email) ? options.email: ''
+				},
+				password: {
+					minLength: 8,
+					maxLength: 15,
+					pattern: /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/,
+					message: 'Password must be only letters, spaces, or dashes 8-15 characters long',
+					hidden: true,
+					required: true
+				}
+			}
+		},
+		function(err, result) {
+			if (err) throw err;
+			create(result, callback);
+		});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+				name: 'exists',
+				message: 'Do you have an existing user? (y/N) ? ',
+				default: 'N'
+			}];
+			inquirer.prompt(questions).then(function(results) {
+				if (results.exists === 'Y' || results.exists === 'y')
+					users.login(options, callback);
+				else users.<span class="apidocCodeKeywordSpan">register</span>(options, callback);
+			});
+		} else done();
+
+	});
+}
+*/
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mean-cli.users.whoami" id="apidoc.element.mean-cli.users.whoami">
+        function <span class="apidocSignatureSpan">mean-cli.users.</span>whoami
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">whoami = function (callback) {
+
+	var token = utils.readToken();
+
+	if (token) {
+
+		var options = {
+			uri: napi + '/whoami',
+			method: 'GET',
+			headers: {
+				'authorization': token
+			}
+		};
+
+		request(options, function(error, response, body) {
+			if (!error &amp;&amp; (response.statusCode === 200 || response.statusCode === 201)) {
+
+				if (callback) return callback(body);
+				console.log(body);
+
+			} else {
+				console.log('Client is NOT Authorized. Invalid token.');
+			}
+		});
+
+	} else {
+		console.log('Client is NOT Authorized.');
+	}
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -458,7 +959,23 @@ utils.<span class="apidocCodeKeywordSpan">loadPackageJson</span>('./' + name + '
 	var path = getUserHome() + '/' + file;
 	return path;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	function create() {
+		var token = utils.readToken();
+		callback(token);
+	}
+	utils.loadPackageJson('./mean.json', function(err, settings) {
+		if (err || !settings) {
+			utils.loadPackageJson(utils.<span class="apidocCodeKeywordSpan">meanJsonPath</span>(), function(err, settings) {
+				if (settings &amp;&amp; settings.anonymizedData) {
+					create();
+				}
+			});
+		} else if (settings &amp;&amp; settings.anonymizedData)
+			create();
+	});
+...</pre></li>
     </ul>
 
 
